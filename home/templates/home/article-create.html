@@ -1,0 +1,39 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <title>ساخت مقاله</title>
+</head>
+<body>
+    <div class="col-md-12">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title mb-0 float-left">افزودن ویدئو</h3>
+            </div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">{% csrf_token %}
+                    <div class="row">
+                        <div class="col-6">
+                            {{ form.title|as_crispy_field }}
+                        </div>
+                        <div class="col-12">
+                            {{ form.slug|as_crispy_field }}
+                        </div>
+                        <div class="col-12">
+                            {{ form.description|as_crispy_field }}
+                        </div>
+                        <div class="col-6">
+                            {{ form.image|as_crispy_field }}
+                        </div>
+                    <input class="btn btn-success" type="submit" value="ارسال آموزش"> 
+                </form>
+            </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{% load hitcount_tags %}
+{% load comment_tags %}  
+{% include_bootstrap %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Home Page</title>
+</head>
+<body dir="rtl" style="right:500px;position: relative;background-color: rgb(29, 103, 133);top: 50px;">
+  <div class="card" style="width: 50rem;background-color: rgb(230, 255, 1);">
+      <img src="{{article.image.url}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title" style="font-size: 50px;color: rgb(0, 225, 255);">{{article.title}}</h5>
+        <p class="card-text" style="font-size: 40px;color: rgb(238, 255, 0);">{{article.description}}</p>
+          <p class="card-text" style="font-size: 30px;color: rgb(255, 123, 0);">{% get_hit_count for article %} آمار بازدید</p>
+      </div>
+      {% render_comments article request %}  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+
+</html>
