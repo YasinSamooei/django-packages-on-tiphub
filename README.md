@@ -9,3 +9,9 @@
 [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/y.electrocode) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/yasin-samooei)
 ## 💻 website:
 (https://tiphub.net)
+## 🗃️ packages list:
+1. django-hit-count
+2. django-star-ratings
+3. pymysql
+4. django-crispy-forms
+5. django-comment-dab
