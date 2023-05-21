@@ -3,7 +3,7 @@ from.models import Article
 from hitcount.views import HitCountDetailView
 from django.views.generic import CreateView
 from django.urls import reverse_lazy
-
+from django.utils.text import slugify
 def home(request):
     #popular_posts=Article.objects.filter(ratings__isnull=False).order_by('-ratings__average')  #based on average of ratings
     popular_posts=Article.objects.order_by('-hit_count_generic__hits') #based on hit-count
@@ -20,6 +20,10 @@ class ArticleView(HitCountDetailView):
 
 class ArticleCreate(CreateView):
     model=Article
-    fields=['title','description','image','slug']
+    fields=['title','description','image']
     template_name="home/article-create.html"
     success_url=reverse_lazy("home:home")
+    def form_valid(self,form):
+        self.obj=form.save(commit=False)
+        self.obj.slug=slugify(self.obj.title,allow_unicode=True)
+        return super().form_valid(form)
